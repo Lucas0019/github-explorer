@@ -12,7 +12,11 @@ export default createGlobalStyle`
 
   :root {
     --font-family: 'Poppins', sans-serif;
-    --background-color: #F0F0F5
+    --background-color: #F0F0F5;
+    --color-title: #3A3A3A;
+    --color-title-repo: #3D3D4A;
+    --button-submit: #04D361;
+    --input-placeholder: #a8a8b3;
   }
 
   body {
