@@ -3,7 +3,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 import GlobalStyle from './styles/global';
 
-// eslint-disable-next-line
 import RoutesToManage from './routes';
 
 const App: React.FC = () => (
