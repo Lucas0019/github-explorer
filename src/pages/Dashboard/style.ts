@@ -1,5 +1,8 @@
-import styled from 'styled-components';
+/* eslint-disable prettier/prettier */
+import styled, { css } from 'styled-components';
 import { shade } from 'polished';
+
+import { IFormProps } from '../../interfaces/IFormProps';
 
 // eslint-disable-next-line import/prefer-default-export
 export const Title = styled.h1`
@@ -11,7 +14,7 @@ export const Title = styled.h1`
   margin-top: 80px;
 `;
 
-export const Form = styled.form`
+export const Form = styled.form<IFormProps>`
   margin-top: 40px;
   max-width: 700px;
   display: flex;
@@ -23,6 +26,13 @@ export const Form = styled.form`
     border: 0;
     border-radius: 5px 0 0 5px;
     color: var(--color-title);
+    border: 2px solid #fff;
+    border-right: 0;
+
+    ${(props) => props.hasError
+      && css`
+        border-color: #c53030;
+      `};
 
     &::placeholder {
       color: var(--input-placeholder);
@@ -43,6 +53,12 @@ export const Form = styled.form`
       background: ${shade(0.2, '#04D361')};
     }
   }
+`;
+
+export const Error = styled.span`
+  display: block;
+  color: #c53030;
+  margin-top: 8px;
 `;
 
 export const Repositories = styled.div`
