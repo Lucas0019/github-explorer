@@ -1,5 +1,5 @@
 /* eslint-disable arrow-parens */
-import React, { useState, FormEvent } from 'react';
+import React, { useState, useEffect, FormEvent } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
 import api from '../../services/api';
 
@@ -13,7 +13,19 @@ import { Title, Form, Repositories, Error } from './style';
 const Dashboard: React.FC = () => {
   const [inputError, setInputError] = useState('');
   const [newRepo, setNewRepo] = useState('');
-  const [repositories, setRepositories] = useState<IRepository[]>([]);
+
+  const [repositories, setRepositories] = useState<IRepository[]>(() => {
+    const storagedRepositories = localStorage.getItem('repositories');
+
+    if (storagedRepositories) {
+      return JSON.parse(storagedRepositories);
+    }
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('repositories', JSON.stringify(repositories));
+  }, [repositories]);
 
   async function hanldeAddRepository(
     event: FormEvent<HTMLFormElement>,
