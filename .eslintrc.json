@@ -24,8 +24,11 @@
       "@typescript-eslint"
   ],
   "rules": {
+    " react/jsx-one-expression-per-line": "off",
+    "react/jsx-one-expression-per-line": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-function-return-type" :[
       "error",
       {
